@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Transform Your Life - eBook by Sameer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .landing-page {
+            background: white;
+            margin: 20px auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* Author Intro Section */
+        .author-intro {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 40px 60px;
+            position: relative;
+        }
+        .author-name { font-size: 4rem; font-weight: 800; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); position: relative; z-index: 1; }
+        .author-subtitle { font-size: 1.3rem; font-weight: 300; opacity: 0.95; max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
+
+        /* Content Sections */
+        .content-section { padding: 60px 40px; text-align: center; }
+        .section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 30px; color: #1e3c72; position: relative; }
+        .section-title::after { content: ''; width: 80px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); display: block; margin: 15px auto; border-radius: 2px; }
+        .section-text { font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto; color: #555; }
+
+        /* Book Cover Section */
+        .book-cover { background: #f8f9ff; padding: 80px 40px; }
+        .book-image {
+            width: 350px; height: 500px;
+            background: linear-gradient(145deg, #667eea, #764ba2);
+            margin: 0 auto; border-radius: 15px;
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
+            display: flex; align-items: center; justify-content: center; color: white;
+            font-size: 1.5rem; font-weight: 600; text-align: center; padding: 20px; position: relative; overflow: hidden;
+        }
+
+        /* Chapters Section */
+        .chapters { background: #f8f9ff; padding: 80px 40px; }
+        .chapters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
+        .chapter-card { background: white; padding: 35px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid #e8ecf4; }
+        .chapter-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .chapter-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.5rem; }
+        .chapter-title { font-size: 1.4rem; font-weight: 600; margin-bottom: 15px; color: #1e3c72; }
+        .chapter-description { color: #666; line-height: 1.6; text-align: left; }
+
+        /* Payment Section */
+        .payment-section { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 80px 40px; text-align: center; }
+        .safe-payment {
+            background: rgba(255,255,255,0.08);
+            padding: 14px 20px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.12);
+            font-weight: 600;
+            color: #eaf6ea;
+        }
+        .safe-payment .tick { color: #1de47a; background: rgba(255,255,255,0.06); padding: 8px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; }
+        .price { font-size: 4rem; font-weight: 800; margin: 20px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .price-highlight { background: linear-gradient(90deg, #ffd700, #ffed4e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .punch-line { font-size: 1.5rem; font-weight: 500; margin: 25px 0; opacity: 0.95; font-style: italic; color: #f9f6f0; }
+
+        .payment-methods { display: flex; justify-content: center; align-items: center; gap: 20px; margin: 30px 0; flex-wrap: wrap; }
+        .payment-logo {
+            width: 140px; height: 70px; background: white; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.12); font-weight: 600; color: #1e3c72;
+            overflow: hidden;
+        }
+        .payment-logo img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+
+        .payment-number { font-size: 1.8rem; font-weight: 700; margin: 20px 0; background: rgba(255,255,255,0.08); padding: 18px 26px; border-radius: 12px; display: inline-block; }
+        .payment-instruction { font-size: 1.05rem; max-width: 700px; margin: 0 auto 25px; opacity: 0.95; line-height: 1.6; color: #eef7f0; }
+
+        .whatsapp-contact { background: #25d366; color: white; padding: 16px 28px; border-radius: 50px; text-decoration: none; font-size: 1.1rem; font-weight: 600; display: inline-flex; align-items: center; gap: 12px; transition: all 0.25s ease; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.25); }
+        .whatsapp-contact:hover { background: #128c7e; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .author-name { font-size: 2.5rem; }
+            .author-subtitle { font-size: 1.05rem; }
+            .section-title { font-size: 2rem; }
+            .content-section { padding: 40px 20px; }
+            .book-image { width: 280px; height: 400px; }
+            .chapters-grid { grid-template-columns: 1fr; gap: 20px; }
+            .price { font-size: 3rem; }
+            .payment-methods { flex-direction: column; gap: 18px; }
+            .whatsapp-contact { padding: 12px 22px; font-size: 1rem; }
+        }
+        @media (max-width: 480px) {
+            .landing-page { margin: 10px; border-radius: 15px; }
+            .author-intro, .content-section, .book-cover, .chapters, .payment-section { padding: 30px 16px; }
+            .author-name { font-size: 2rem; }
+            .book-image { width: 250px; height: 350px; }
+            .price { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="landing-page">
+
+            <!-- Author Intro Section -->
+            <section class="author-intro">
+                <h1 class="author-name">Author: SAMEER KHAN </h1>
+                <p class="author-subtitle">After years of research, experience, and helping many young people transform their income, this guide is the exact set of steps and mindset shifts that changed lives — refined for Pakistan's youth.</p>
+            </section>
+
+            <!-- How This Book Helps Section -->
+            <section class="content-section">
+                <h2 class="section-title">Transform Your Life Today</h2>
+                <p class="section-text">This book is your roadmap to breakthrough success. It focuses on mindset, practical digital-income strategies, daily rituals, and money management tailored to local realities. Follow the plan and watch small actions compound into real results.</p>
+            </section>
+
+            <!-- Book Description Section -->
+            <section class="content-section">
+                <h2 class="section-title">About This Book</h2>
+                <p class="section-text">More than theory — this is a practical playbook. Each chapter gives step-by-step tasks, real examples from Pakistan, and simple blueprints you can apply today. No fluff. Just honest, proven steps to reach your first Rs. 1 lac in 100 days.</p>
+            </section>
+
+            <!-- Book Cover Section -->
+            <section class="book-cover">
+                <div class="book-image">
+                    <div>
+                        <i class="fas fa-book" style="font-size: 3rem; margin-bottom: 18px;"></i>
+                        <br>
+                        <img src="ro2s8sun.png" width="300px" height="300px">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chapters Section -->
+            <section class="chapters">
+                <h2 class="section-title">What You'll Learn</h2>
+                <div class="chapters-grid">
+                    <!-- Chapter cards: each description expanded to ~3-4 lines placeholder -->
+                    <div class="chapter-card">
+                        <div class="chapter-icon"><i class="fas fa-brain"></i></div>
+                        <h3 class="chapter-title">Chapter 1: Mindset Mastery</h3>
+                        <p class="chapter-description">Understand how your beliefs shape your reality. This chapter rewires your inner narrative, removes limiting thoughts, and installs daily practices that prime you for consistent action and financial growth.</p>
+                    </div>
+
+                    <div class="chapter-card">
+                        <div class="chapter-icon"><i class="fas fa-bullseye"></i></div>
+                        <h3 class="chapter-title">Chapter 2: Goal Setting Secrets</h3>
+                        <p class="chapter-description">Learn a simple framework for turning vague dreams into measurable goals. This chapter walks you through actionable goal maps, milestones, and checkpoints so you can measure progress every week and stay accountable.</p>
+                    </div>
+
+                    <div class="chapter-card">
+                        <div class="chapter-icon"><i class="fas fa-clock"></i></div>
+                        <h3 class="chapter-title">Chapter 3: Time Mastery</h3>
+                        <p class="chapter-description">Discover how to reclaim hours from wasted scrolling and build a daily hour that moves your life. Practical routines, focus techniques, and a one-hour blueprint designed for busy students and job-holders.</p>
+                    </div>
+
+                    <div class="chapter-card">
+                        <div class="chapter-icon"><i class="fas fa-fire"></i></div>
+                        <h3 class="chapter-title">Chapter 4: Building Unstoppable Habits</h3>
+                        <p class="chapter-description">Create routines that automatically produce results. Learn the science of habit stacking, tiny wins, and rituals that keep your momentum, even on bad days. This chapter is the engine for long-term success.</p>
+                    </div>
+
+                    <div class="chapter-card">
+                        <div class="chapter-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3 class="chapter-title">Chapter 5: Overcoming Fear & Doubt</h3>
+                        <p class="chapter-description">Practical strategies to push through anxiety, shame, and self-doubt. Tools, short exercises, and mindset shifts that allow you to act despite fear and keep moving toward your financial goals.</p>
+                    </div>
+
+                    <div class="chapter-card">
+                        <div class="chapter-icon"><i class="fas fa-rocket"></i></div>
+                        <h3 class="chapter-title">Chapter 6: Taking Massive Action</h3>
+                        <p class="chapter-description">Turn planning into execution. This chapter gives step-by-step action plans, daily tasks, and accountability techniques so you can create momentum, get your first clients, and start earning real income fast.</p>
+                    </div>
+
+                    <div class="chapter-card">
+                        <div class="chapter-icon"><i class="fas fa-users"></i></div>
+                        <h3 class="chapter-title">Chapter 7: Building Powerful Relationships</h3>
+                        <p class="chapter-description">How to build meaningful connections that open doors. Learn networking scripts, DM templates, and ways to nurture relationships so people become allies in your growth and future projects.</p>
+                    </div>
+
+                    <div class="chapter-card">
+                        <div class="chapter-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="chapter-title">Chapter 8: Financial Intelligence</h3>
+                        <p class="chapter-description">Simple budgeting, reinvestment tactics, and a starter plan to make your earnings work for you. Get a clear, local-friendly strategy to save, reinvest, and grow your capital consistently.</p>
+                    </div>
+
+                    <div class="chapter-card">
+                        <div class="chapter-icon"><i class="fas fa-balance-scale"></i></div>
+                        <h3 class="chapter-title">Chapter 9: Work-Life Balance Mastery</h3>
+                        <p class="chapter-description">Balance productivity with wellbeing. Practical tips to prevent burnout, stay consistent in studies or work, and live a disciplined life that supports both income and health.</p>
+                    </div>
+
+                    <div class="chapter-card">
+                        <div class="chapter-icon"><i class="fas fa-crown"></i></div>
+                        <h3 class="chapter-title">Chapter 10: Living Your Legacy</h3>
+                        <p class="chapter-description">Scale beyond the first 1 lac: build systems, brand, and a tribe. This chapter focuses on long-term growth, building influence, and turning your earnings into lasting impact.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Payment Section -->
+            <section class="payment-section">
+                <!-- single safe payment note with green tick -->
+                <div class="safe-payment">
+                    <span class="tick"><i class="fas fa-check"></i></span>
+                    <span>Your payment is <strong>100% safe and secure</strong></span>
+                </div>
+
+                <div class="price">
+                    Only <span class="price-highlight">Rs. 199/-</span>
+                </div>
+
+                <p class="punch-line">Invest in your mind — just for the price of a cup of tea!</p>
+
+                <!-- payment logos — placeholder images -->
+                <div class="payment-methods">
+                    <div class="payment-logo" title="EasyPaisa">
+                        <!-- placeholder logo: replace src with actual logo file -->
+                        <img src="brand.png" alt="EasyPaisa Logo">
+                    </div>
+                    <div class="payment-logo" title="JazzCash">
+                        <img src="jazz-cash-new-logo-png_seeklogo-613046.png" alt="JazzCash Logo">
+                    </div>
+                </div>
+
+                <!-- EasyPaisa / JazzCash number (same number shown) -->
+                <div class="payment-number">EasyPaisa / JazzCash: <strong>0300-2243575</strong></div>
+
+                <p class="payment-instruction">Send payment, then share the payment screenshot on WhatsApp. After verification, your eBook will be delivered instantly via email or WhatsApp.</p>
+
+                <a href="https://wa.me/+923002243575" class="whatsapp-contact" target="_blank" rel="noreferrer">
+                    <i class="fab fa-whatsapp" style="font-size:1.2rem"></i>
+                    Contact on WhatsApp
+                </a>
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
